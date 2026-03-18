@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mehendi Art by PR – Enroll Now</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:    #c9973a;
+      --gold2:   #e8c46a;
+      --deep:    #2d1a0e;
+      --brown:   #6b3a1f;
+      --cream:   #fdf6ec;
+      --rust:    #a0421d;
+      --green:   #2e5232;
+      --light:   #f7efe3;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      background: #1a0e07;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ── STORY WRAPPER ── */
+    .story {
+      position: relative;
+      width: 420px;
+      min-height: 780px;
+      background: linear-gradient(170deg, #1c0f06 0%, #2d1a0e 40%, #3b2210 70%, #1c0f06 100%);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,.8), 0 0 0 1px rgba(201,151,58,.25);
+    }
+
+    /* ── GOLD BORDER GLOW ── */
+    .story::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 28px;
+      padding: 2px;
+      background: linear-gradient(135deg, var(--gold2), transparent 40%, var(--gold), transparent 80%, var(--gold2));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* ── BACKGROUND TEXTURE LAYER ── */
+    .bg-texture {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 200px 200px at 10% 15%, rgba(201,151,58,.12) 0%, transparent 70%),
+        radial-gradient(ellipse 180px 180px at 90% 80%, rgba(160,66,29,.15) 0%, transparent 70%),
+        radial-gradient(ellipse 150px 150px at 50% 50%, rgba(201,151,58,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── FLOATING PETALS ── */
+    .petals { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .petal {
+      position: absolute;
+      width: 8px; height: 8px;
+      border-radius: 50% 0 50% 0;
+      background: radial-gradient(circle, var(--gold2), var(--gold));
+      opacity: 0;
+      animation: floatUp 8s infinite ease-in-out;
+    }
+    .petal:nth-child(1)  { left:8%;  animation-delay:0s;   animation-duration:7s;  width:6px;  height:6px; }
+    .petal:nth-child(2)  { left:20%; animation-delay:1.2s; animation-duration:9s;  width:5px;  height:5px; }
+    .petal:nth-child(3)  { left:35%; animation-delay:2.5s; animation-duration:8s;  width:7px;  height:7px; }
+    .petal:nth-child(4)  { left:55%; animation-delay:0.7s; animation-duration:10s; width:4px;  height:4px; }
+    .petal:nth-child(5)  { left:70%; animation-delay:3.1s; animation-duration:7.5s;width:6px;  height:6px; }
+    .petal:nth-child(6)  { left:85%; animation-delay:1.8s; animation-duration:9.5s;width:5px;  height:5px; }
+    .petal:nth-child(7)  { left:45%; animation-delay:4s;   animation-duration:8.5s;width:8px;  height:8px; }
+    .petal:nth-child(8)  { left:92%; animation-delay:2s;   animation-duration:6.5s;width:4px;  height:4px; }
+    @keyframes floatUp {
+      0%   { transform: translateY(820px) rotate(0deg);   opacity: 0; }
+      10%  { opacity: .9; }
+      90%  { opacity: .6; }
+      100% { transform: translateY(-40px) rotate(360deg); opacity: 0; }
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 38px 28px 34px;
+      gap: 0;
+    }
+
+    /* ── TOP ORNAMENT ── */
+    .ornament-top {
+      width: 220px;
+      margin-bottom: 12px;
+      animation: fadeDown .8s ease forwards;
+      opacity: 0;
+      animation-delay: .1s;
+    }
+    .ornament-bottom {
+      width: 220px;
+      margin-top: 4px;
+      transform: rotate(180deg);
+      animation: fadeUp .8s ease forwards;
+      opacity: 0;
+      animation-delay: .2s;
+    }
+    @keyframes fadeDown { from { opacity:0; transform:translateY(-18px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(18px) rotate(180deg); } to { opacity:1; transform:translateY(0) rotate(180deg); } }
+
+    /* ── TAGLINE PILL ── */
+    .tagline-pill {
+      background: linear-gradient(90deg, var(--gold), var(--gold2), var(--gold));
+      color: var(--deep);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 5px 18px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+      animation: fadeIn .7s .4s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+
+    /* ── MAIN TITLE ── */
+    .brand-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 58px;
+      line-height: 1.1;
+      color: var(--gold2);
+      text-shadow: 0 2px 20px rgba(201,151,58,.55), 0 0 60px rgba(232,196,106,.2);
+      letter-spacing: 1px;
+      animation: scaleIn .8s .5s cubic-bezier(.34,1.56,.64,1) forwards;
+      opacity: 0;
+      transform: scale(.85);
+      text-align: center;
+    }
+    @keyframes scaleIn { to { opacity:1; transform:scale(1); } }
+
+    .brand-sub {
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(232,196,106,.7);
+      margin-top: 4px;
+      margin-bottom: 6px;
+      animation: fadeIn .7s .8s ease forwards;
+      opacity: 0;
+    }
+
+    /* ── DIVIDER LINE ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      margin: 14px 0;
+      animation: fadeIn .7s .9s ease forwards;
+      opacity: 0;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .divider-diamond {
+      width: 7px; height: 7px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    /* ── STORY TEXT BLOCK ── */
+    .story-intro {
+      text-align: center;
+      animation: fadeIn .7s 1s ease forwards;
+      opacity: 0;
+      margin-bottom: 16px;
+    }
+    .story-intro .headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .story-intro .headline em {
+      color: var(--gold2);
+      font-style: italic;
+    }
+    .story-intro .body-text {
+      font-size: 11.5px;
+      color: rgba(253,246,236,.65);
+      line-height: 1.7;
+      max-width: 310px;
+      margin: 0 auto;
+    }
+
+    /* ── COURSE CARDS ── */
+    .courses {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      margin: 8px 0 16px;
+      animation: fadeIn .7s 1.2s ease forwards;
+      opacity: 0;
+    }
+    .course-card {
+      flex: 1;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,151,58,.3);
+      border-radius: 14px;
+      padding: 14px 10px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s, border-color .3s;
+    }
+    .course-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold);
+    }
+    .course-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,151,58,.08), transparent);
+      pointer-events: none;
+    }
+    .course-card .icon { font-size: 22px; margin-bottom: 6px; display: block; }
+    .course-card .label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold2);
+    }
+    .course-card .desc {
+      font-size: 9.5px;
+      color: rgba(253,246,236,.55);
+      margin-top: 3px;
+    }
+
+    /* ── HIGHLIGHTS STRIP ── */
+    .highlights {
+      width: 100%;
+      background: linear-gradient(90deg, rgba(201,151,58,.12), rgba(201,151,58,.06), rgba(201,151,58,.12));
+      border: 1px solid rgba(201,151,58,.2);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 16px;
+      animation: fadeIn .7s 1.4s ease forwards;
+      opacity: 0;
+      gap: 4px;
+    }
+    .hi-item { text-align: center; }
+    .hi-item .hi-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--gold2);
+      line-height: 1;
+    }
+    .hi-item .hi-label {
+      font-size: 8.5px;
+      color: rgba(253,246,236,.55);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .hi-sep { width: 1px; background: rgba(201,151,58,.25); }
+
+    /* ── DATE BANNER ── */
+    .date-banner {
+      width: 100%;
+      background: linear-gradient(90deg, var(--brown), var(--rust), var(--brown));
+      border-radius: 14px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      animation: fadeIn .7s 1.6s ease forwards;
+      opacity: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .date-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.06) 50%, transparent 100%);
+      animation: shimmer 3s infinite;
+    }
+    @keyframes shimmer {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .date-banner .date-label {
+      font-size: 9.5px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(253,246,236,.7);
+    }
+    .date-banner .date-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+    .date-banner .date-pill {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      color: var(--cream);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 50px;
+      letter-spacing: 1px;
+    }
+
+    /* ── WHAT YOU LEARN ── */
+    .learn-section {
+      width: 100%;
+      margin-bottom: 16px;
+      animation: fadeIn .7s 1.8s ease forwards;
+      opacity: 0;
+    }
+    .section-title {
+      font-size: 9.5px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(201,151,58,.4), transparent);
+    }
+    .learn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+    .learn-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      color: rgba(253,246,236,.8);
+    }
+    .learn-item::before {
+      content: '✦';
+      color: var(--gold);
+      font-size: 9px;
+      flex-shrink: 0;
+    }
+
+    /* ── CONTACT BLOCK ── */
+    .contact-block {
+      width: 100%;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      animation: fadeIn .7s 2s ease forwards;
+      opacity: 0;
+    }
+    .contact-item {
+      flex: 1;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(201,151,58,.22);
+      border-radius: 12px;
+      padding: 12px 10px;
+      text-align: center;
+      transition: border-color .3s;
+    }
+    .contact-item:hover { border-color: var(--gold); }
+    .contact-item .c-icon { font-size: 18px; margin-bottom: 5px; display: block; }
+    .contact-item .c-label {
+      font-size: 8.5px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 3px;
+    }
+    .contact-item .c-value {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--cream);
+    }
+
+    /* ── CTA BUTTON ── */
+    .cta-wrap {
+      width: 100%;
+      animation: fadeIn .7s 2.2s ease forwards;
+      opacity: 0;
+    }
+    .cta-btn {
+      width: 100%;
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #b07a24, var(--gold2), #b07a24);
+      background-size: 200% 100%;
+      color: var(--deep);
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+      box-shadow: 0 6px 24px rgba(201,151,58,.4);
+      animation: fadeIn .7s 2.2s ease forwards, btnShimmer 3s 3s infinite;
+      opacity: 0;
+    }
+    @keyframes btnShimmer {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 10px 32px rgba(201,151,58,.55);
+    }
+    .cta-btn:active { transform: scale(.98); }
+
+    /* ── FOOTER NOTE ── */
+    .footer-note {
+      font-size: 9.5px;
+      color: rgba(253,246,236,.35);
+      letter-spacing: 1px;
+      margin-top: 14px;
+      text-align: center;
+      animation: fadeIn .7s 2.4s ease forwards;
+      opacity: 0;
+    }
+
+    /* ── CORNER ORNAMENTS ── */
+    .corner {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      pointer-events: none;
+      z-index: 6;
+    }
+    .corner-tl { top: 14px; left: 14px; }
+    .corner-tr { top: 14px; right: 14px; transform: scaleX(-1); }
+    .corner-bl { bottom: 14px; left: 14px; transform: scaleY(-1); }
+    .corner-br { bottom: 14px; right: 14px; transform: scale(-1,-1); }
+  </style>
+</head>
+<body>
+
+<div class="story">
+
+  <!-- Background texture -->
+  <div class="bg-texture"></div>
+
+  <!-- Floating petals -->
+  <div class="petals">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div>
+  </div>
+
+  <!-- Corner ornaments (inline SVG) -->
+  <svg class="corner corner-tl" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 2 Q2 35 35 35" stroke="rgba(201,151,58,.5)" stroke-width="1.5" fill="none"/>
+    <path d="M2 2 Q35 2 35 35" stroke="rgba(201,151,58,.5)" stroke-width="1.5" fill="none"/>
+    <circle cx="2" cy="2" r="3" fill="rgba(201,151,58,.7)"/>
+    <circle cx="35" cy="35" r="2" fill="rgba(201,151,58,.4)"/>
+    <path d="M8 2 Q8 8 2 8" stroke="rgba(201,151,58,.35)" stroke-width="1" fill="none"/>
+    <path d="M14 2 Q14 14 2 14" stroke="rgba(201,151,58,.2)" stroke-width="1" fill="none"/>
+  </svg>
+  <svg class="corner corner-tr" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 2 Q2 35 35 35" stroke="rgba(201,151,58,.5)" stroke-width="1.5" fill="none"/>
+    <path d="M2 2 Q35 2 35 35" stroke="rgba(201,151,58,.5)" stroke-width="1.5" fill="none"/>
+    <circle cx="2" cy="2" r="3" fill="rgba(201,151,58,.7)"/>
+    <circle cx="35" cy="35" r="2" fill="rgba(201,151,58,.4)"/>
+    <path d="M8 2 Q8 8 2 8" stroke="rgba(201,151,58,.35)" stroke-width="1" fill="none"/>
+    <path d="M14 2 Q14 14 2 14" stroke="rgba(201,151,58,.2)" stroke-width="1" fill="none"/>
+  </svg>
+  <svg class="corner corner-bl" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 2 Q2 35 35 35" stroke="rgba(201,151,58,.5)" stroke-width="1.5" fill="none"/>
+    <path d="M2 2 Q35 2 35 35" stroke="rgba(201,151,58,.5)" stroke-width="1.5" fill="none"/>
+    <circle cx="2" cy="2" r="3" fill="rgba(201,151,58,.7)"/>
+    <circle cx="35" cy="35" r="2" fill="rgba(201,151,58,.4)"/>
+    <path d="M8 2 Q8 8 2 8" stroke="rgba(201,151,58,.35)" stroke-width="1" fill="none"/>
+    <path d="M14 2 Q14 14 2 14" stroke="rgba(201,151,58,.2)" stroke-width="1" fill="none"/>
+  </svg>
+  <svg class="corner corner-br" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 2 Q2 35 35 35" stroke="rgba(201,151,58,.5)" stroke-width="1.5" fill="none"/>
+    <path d="M2 2 Q35 2 35 35" stroke="rgba(201,151,58,.5)" stroke-width="1.5" fill="none"/>
+    <circle cx="2" cy="2" r="3" fill="rgba(201,151,58,.7)"/>
+    <circle cx="35" cy="35" r="2" fill="rgba(201,151,58,.4)"/>
+    <path d="M8 2 Q8 8 2 8" stroke="rgba(201,151,58,.35)" stroke-width="1" fill="none"/>
+    <path d="M14 2 Q14 14 2 14" stroke="rgba(201,151,58,.2)" stroke-width="1" fill="none"/>
+  </svg>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+
+    <!-- TOP ORNAMENT SVG -->
+    <svg class="ornament-top" viewBox="0 0 220 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="16" x2="78" y2="16" stroke="rgba(201,151,58,.35)" stroke-width="1"/>
+      <path d="M78 16 Q88 6 98 16 Q108 26 118 16 Q128 6 138 16" stroke="rgba(201,151,58,.7)" stroke-width="1.5" fill="none"/>
+      <line x1="138" y1="16" x2="220" y2="16" stroke="rgba(201,151,58,.35)" stroke-width="1"/>
+      <circle cx="110" cy="16" r="4" fill="rgba(201,151,58,.8)"/>
+      <circle cx="110" cy="16" r="7" stroke="rgba(201,151,58,.3)" stroke-width="1" fill="none"/>
+      <circle cx="88" cy="16" r="2" fill="rgba(201,151,58,.5)"/>
+      <circle cx="132" cy="16" r="2" fill="rgba(201,151,58,.5)"/>
+    </svg>
+
+    <!-- PILL -->
+    <div class="tagline-pill">✦ New Batch · April 2026 ✦</div>
+
+    <!-- BRAND NAME -->
+    <div class="brand-name">Mehendi Art by PR</div>
+    <div class="brand-sub">Handcrafted with love · Est. 2020</div>
+
+    <!-- BOTTOM ORNAMENT -->
+    <svg class="ornament-bottom" viewBox="0 0 220 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="16" x2="78" y2="16" stroke="rgba(201,151,58,.35)" stroke-width="1"/>
+      <path d="M78 16 Q88 6 98 16 Q108 26 118 16 Q128 6 138 16" stroke="rgba(201,151,58,.7)" stroke-width="1.5" fill="none"/>
+      <line x1="138" y1="16" x2="220" y2="16" stroke="rgba(201,151,58,.35)" stroke-width="1"/>
+      <circle cx="110" cy="16" r="4" fill="rgba(201,151,58,.8)"/>
+      <circle cx="110" cy="16" r="7" stroke="rgba(201,151,58,.3)" stroke-width="1" fill="none"/>
+      <circle cx="88" cy="16" r="2" fill="rgba(201,151,58,.5)"/>
+      <circle cx="132" cy="16" r="2" fill="rgba(201,151,58,.5)"/>
+    </svg>
+
+    <!-- DIVIDER -->
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-diamond"></div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- STORY INTRO -->
+    <div class="story-intro">
+      <div class="headline">
+        Transform Your Hands Into<br><em>Living Works of Art</em>
+      </div>
+      <div class="body-text">
+        From your very first stroke to breathtaking bridal designs —
+        join our guided classes and discover the ancient art of Mehendi
+        in a warm, creative space built just for you.
+      </div>
+    </div>
+
+    <!-- COURSE CARDS -->
+    <div class="courses">
+      <div class="course-card">
+        <span class="icon">🌿</span>
+        <div class="label">Beginner</div>
+        <div class="desc">Patterns & basics</div>
+      </div>
+      <div class="course-card">
+        <span class="icon">🌸</span>
+        <div class="label">Intermediate</div>
+        <div class="desc">Floral & Arabic</div>
+      </div>
+      <div class="course-card">
+        <span class="icon">👑</span>
+        <div class="label">Bridal</div>
+        <div class="desc">Full bridal art</div>
+      </div>
+    </div>
+
+    <!-- HIGHLIGHTS -->
+    <div class="highlights">
+      <div class="hi-item">
+        <div class="hi-val">3+</div>
+        <div class="hi-label">Levels</div>
+      </div>
+      <div class="hi-sep"></div>
+      <div class="hi-item">
+        <div class="hi-val">100%</div>
+        <div class="hi-label">Hands-on</div>
+      </div>
+      <div class="hi-sep"></div>
+      <div class="hi-item">
+        <div class="hi-val">Kit</div>
+        <div class="hi-label">Included</div>
+      </div>
+      <div class="hi-sep"></div>
+      <div class="hi-item">
+        <div class="hi-val">Cert.</div>
+        <div class="hi-label">Provided</div>
+      </div>
+    </div>
+
+    <!-- DATE BANNER -->
+    <div class="date-banner">
+      <div>
+        <div class="date-label">Batch Starts</div>
+        <div class="date-val">1st April 2026</div>
+      </div>
+      <div class="date-pill">Offline Classes</div>
+    </div>
+
+    <!-- WHAT YOU LEARN -->
+    <div class="learn-section">
+      <div class="section-title">What You'll Learn</div>
+      <div class="learn-grid">
+        <div class="learn-item">Traditional Indian</div>
+        <div class="learn-item">Arabic Designs</div>
+        <div class="learn-item">Rajasthani Motifs</div>
+        <div class="learn-item">Bridal Full Hands</div>
+        <div class="learn-item">Cone Preparation</div>
+        <div class="learn-item">Color & Shading</div>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="contact-block">
+      <div class="contact-item">
+        <span class="c-icon">📱</span>
+        <div class="c-label">Call / WhatsApp</div>
+        <div class="c-value">8306650423</div>
+      </div>
+      <div class="contact-item">
+        <span class="c-icon">📸</span>
+        <div class="c-label">Instagram</div>
+        <div class="c-value">@mehndiart_by_pr</div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-wrap">
+      <button class="cta-btn">✦ Enroll Now ✦</button>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-note">Limited Seats · Register Before 25 March 2026</div>
+
+  </div><!-- /content -->
+</div><!-- /story -->
+
+</body>
+</html>
